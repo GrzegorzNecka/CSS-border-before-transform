@@ -98,6 +98,7 @@ body {
     background-image: url(../5-jezioro.jpg);
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #text{
