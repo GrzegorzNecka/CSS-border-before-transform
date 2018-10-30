@@ -1,36 +1,20 @@
-/*
-Wykorzystując dotychczas zdobytą wiedzę o HTML5 i CSS3 stwórz następujący efekt:
-
-- Po najechaniu myszką na obrazek pojawia ramka, która animuje się od góry do połowy i od dołu do połowy tak, aby na końcu obramowanie było na całym obrazku. 
-- Między ramką a obrazkiem ma być 5px odstępu. 
-- Na środku obrazka wyświetlaj jego opis. Ma on się stopniowo pojawiać po najechaniu na obrazek myszką.
-
-Podpowiedź:
-Do stworzenia ramki musisz użyć pseudoelementów ::before i ::after - pamiętaj muszą one zawierać właściwość 'content' oraz musisz je pozycjonować absolutnie względem kontenera z obrazkiem
-
-Podgląd efektu na załączonych obrazkach
-- 5-image-hover-border-1-before.png
-- 5-image-hover-border-2-during.png
-- 5-image-hover-border-3-after.png
-
-Do realizacji projektu użyj załączonego obrazka:
-- 5-jezioro.jpg
-
-Zadanie zrób za pomocą GitHub Pages
-*/
-
 body {
     margin: 0;
 }
 
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
 .container {
     position: relative;
-    background-color: red;
+    background-color: #829faf;
     height: 100vh;
 }
 
 .ramka{
- background-color: #FFF; 
+ background-color: #e0a911; 
  height: 300px;
  width: 500px;
  position: relative;
@@ -40,47 +24,35 @@ body {
 
 }
 
-.ramka::before{
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: 50%;
-    transform: translate(-50%);
-    border-style: solid;
-    border-width: 3px;
-    border-bottom: none;
-    height: 0px;
-    opacity:0;
-    width: 500px;
-    transition: all 1.4s;
-}
-
+.ramka::before,
 .ramka::after{
     content: '';
     position: absolute;
-    bottom: -3px;
     left: 50%;
     transform: translate(-50%);
     border-style: solid;
+    border-color: #e0a911; 
     border-width: 3px;
-    border-top: none;
     height: 0px;
     opacity:0;
     width: 500px;
     transition: all 1.4s;
 }
 
-
-.ramka:hover::after{
-   height: 155px;
-   opacity:1;
+.ramka::before{
+    border-bottom: none;
+    top: -3px;
+}
+.ramka::after{
+    border-top: none;
+    bottom: -3px;
 }
 
+.ramka:hover::after,
 .ramka:hover::before{
    height: 155px;
    opacity:1;
 }
-
 
 .ramka:hover #text{
     opacity: 1;
@@ -111,7 +83,7 @@ body {
     width: 100%;
     text-align: center;
     color: #FFF;
-    background-color: rgba(0,0,0,0.6);
+    background-color: #e0a911;
     padding: 0;
     margin: 0;
     transition: all 1.4s;
